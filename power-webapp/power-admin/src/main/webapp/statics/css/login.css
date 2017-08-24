@@ -1,0 +1,17 @@
+.login-box-wrap, .register-box-wrap {
+    background: transparent;
+    /*padding: 20px;*/
+    padding: 30px 20px 30px 20px;
+    border-top: 0;
+    color: #fff;
+}
+
+.white {
+    background-color: transparent;
+    color: #fff;
+}
+
+
+input[placeholder], [placeholder], *[placeholder] {
+    color:#fff !important;
+}

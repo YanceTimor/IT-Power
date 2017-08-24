@@ -1,0 +1,231 @@
+.leipiplugins {
+    cursor: move;
+}
+
+.tab-content {
+    overflow: hidden !important;
+}
+
+#components {
+    min-height: 600px;
+}
+
+#target {
+    min-height: 400px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+#target .component {
+    /*border: 1px solid #fff;*/
+    border: 1px dashed #ccc;
+    padding: 10px 0px;
+}
+
+#temp .component {
+    border: none !important;
+}
+
+.module-left {
+    max-width: 400px;
+    margin-right: 30px;
+}
+
+#build {
+    max-width: 400px;
+}
+
+#legend {
+    border: 1px solid #fff !important;
+}
+
+#temp {
+    width: 500px;
+    background: white;
+    border: 1px dotted #ccc;
+    border-radius: 10px;
+}
+
+.popover {
+    width: 450px;
+    max-width: 500px !important;
+    margin-left: -10px !important;
+}
+
+.popover-content form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.popover-content form .btn {
+    margin-right: 10px
+}
+
+#source {
+    min-height: 500px;
+}
+
+#jsonstr {
+    min-height: 500px;
+}
+
+.container {
+    width: 100%;
+}
+
+.row {
+    margin-left: 0px;
+}
+
+[class*="span"] {
+    margin-left: 0px;
+}
+
+.controls {
+    cursor: pointer;
+}
+
+.controls .plugjsonstr {
+    /*display: none;*/
+}
+
+.form-horizontal .control-label {
+    width: 110px !important;
+}
+
+.form-horizontal .controls {
+    padding-left: 120px;
+    margin-left: 0px !important;
+}
+
+/*.leipiplugins {
+    width: 100% !important;
+}*/
+
+/* tabs */
+#tabs, #tabs_level {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+#tabs li, #tabs_level li {
+    float: left;
+    display: block;
+    padding: 5px;
+    background-color: #6fc8ef;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+#tabs li a, #tabs_level li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#tabs li.current, #tabs_level li.current {
+    background-color: #006dcc;
+}
+
+#tabs li.current a, #tabs_level li.current a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#tabs li a.remove, #tabs_level li a.remove {
+    color: #f00;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#content {
+    border: 1px solid #006dcc;
+    min-height: 390px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#content_level {
+    border: 1px solid #006dcc;
+    min-height: 350px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#content p, #content_level p {
+    margin: 0;
+    padding: 20px 20px 100px 20px;
+}
+
+#documents {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper, #wrapper_level {
+    width: 100%;
+}
+
+.container {
+    min-width: 1000px;
+}
+
+.bootstrap-select.form-control:not([class*="col-"]) {
+    width: 300px;
+}
+
+.content-label-input {
+    width: 100%;
+    height: 40px;
+}
+
+.content-label-input label {
+    width: 80px;
+}
+
+.content-label-input input {
+    width: 300px;
+}
+
+.content-label-input textarea {
+    width: 300px;
+    min-height: 240px;
+}
+
+.content-left {
+    float: left;
+}
+
+.add_tab {
+    width: 70px !important;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #49afcd;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+    border: none;
+}
+
+.add_tab_level {
+    width: 100px !important;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #49afcd;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+}

@@ -1,0 +1,354 @@
+html {
+    overflow-x: hidden;
+}
+
+.content-header {
+/*    display: none;*/
+    position: relative;
+    padding: 0 0 3px 8px
+}
+
+.content-header > .breadcrumb {
+    position: relative;
+    top: 0;
+    right: 0;
+    float: none;
+    margin-top: 0px;
+    padding-left: 10px;
+    background: #ecf0f5;
+}
+
+.main-footer {
+    padding: 7px;
+    color: #444;
+    border-top: 1px solid #eee;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.grid-btn {
+    margin-bottom: 12px;
+}
+
+.grid-btn .btn {
+    margin-right: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.ml-10 {
+    margin-left: 0 !important;
+}
+
+@media (min-width: 768px) {
+    .ml-10 {
+        margin-left: 10px !important;
+    }
+
+    .col-sm-10 {
+        width: 75%;
+        padding-left: 0px;
+        max-width: 1000px;
+    }
+
+    .col-sm-2 {
+        width: 20%;
+        max-width: 200px;
+    }
+
+    .col-sm-3 {
+        width: 25%;
+        max-width: 300px;
+    }
+
+    .col-sm-5 {
+        width: 50%;
+        max-width: 500px;
+    }
+}
+
+tbody > tr > th {
+    font-weight: normal;
+}
+
+.panel .table {
+    margin: 0 0;
+}
+
+.panel .pagination {
+    margin: 0;
+}
+
+.panel-default > .panel-heading {
+    background-color: #f5f5f5;
+}
+
+.row {
+    border-top: 1px solid #ddd;
+    margin: 0;
+    padding: 20px 2px 0px 2px;
+}
+
+.col-xs-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.form-horizontal .form-group {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.form-horizontal {
+    width: 550px;
+    padding-top: 20px;
+}
+
+/* 设置滚动条的样式 开始 */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(204, 204, 204, 0.9);
+    border-radius: 12px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background: rgba(153, 153, 153, 0.58);
+    -webkit-box-shadow: inset 0 0 6px rgba(153, 153, 153, 0.89);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(153, 153, 153, 0.89);
+}
+
+/* 设置滚动条的样式 结束 */
+
+/* 自定义开始 */
+.skin-blue .main-header .navbar {
+    background-color: #222d32;
+}
+
+/*头部导航*/
+.skin-blue .main-header .navbar .nav > li > a:hover, .skin-blue .main-header .navbar .nav > li > a:active, .skin-blue .main-header .navbar .nav > li > a:focus, .skin-blue .main-header .navbar .nav .open > a, .skin-blue .main-header .navbar .nav .open > a:hover, .skin-blue .main-header .navbar .nav .open > a:focus, .skin-blue .main-header .navbar .nav > .active > a {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #333;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #222d32;
+    color: #fff;
+    border-bottom: 0 solid transparent;
+}
+
+.skin-blue .main-header .logo:hover {
+    background-color: #333;
+}
+
+.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a {
+    color: #fff;
+    background: #1e282c;
+    border-left-color: #00a6ee;
+}
+
+/*btn-primary按钮样式*/
+.btn-primary {
+    color: #fff;
+    background-color: #00a6ee;
+    border-color: #6fc8ef;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background-color: #099cee;
+    border-color: #6fc8ef;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0b6b95;
+    border-color: #6fc8ef;
+}
+
+.btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #00a6ee;
+    border-color: #6fc8ef
+}
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: #099cee;
+    border-color: #6fc8ef
+}
+
+.btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
+    background-image: none
+}
+
+.btn-primary.disabled.focus, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled].focus, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+    background-color: #1a8eee;
+    border-color: #6fc8ef
+}
+
+.btn-primary .badge {
+    color: #1a8eee;
+    background-color: #fff
+}
+
+/*导航菜单字体*/
+.sidebar-menu {
+    font-size: 16px;
+}
+
+/*菜单缩进*/
+.sidebar-menu .treeview-menu {
+    padding-left: 0px !important;
+}
+
+.skin-blue .sidebar-menu > li > .treeview-menu > li > a {
+    padding-left: 25px;
+}
+
+.sidebar-menu .treeview-menu .treeview-menu > li > a {
+    padding-left: 45px !important;
+}
+
+/*导航背景色*/
+.skin-blue .treeview-menu > li > a:hover {
+    color: #fff !important;
+    background: #333;
+}
+
+.active_a {
+    color: #fff !important;
+    background: #000;
+}
+
+/*修改密码*/
+.layui-layer-molv .layui-layer-title {
+    background: #00a6ee !important;
+}
+
+/*jqgrid弹出框*/
+.ui-widget-header {
+    border: 1px solid #6fc8ef !important;
+    background: #00a6ee !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #c9e5fe !important;
+}
+
+/*layui-layer-btn0按钮样式*/
+.layui-layer-btn0 {
+    color: #fff;
+    background-color: #00a6ee !important;
+    border-color: #6fc8ef !important;
+}
+
+.layui-layer-btn0.focus, .layui-layer-btn0:focus {
+    color: #fff !important;
+    background-color: #099cee !important;
+    border-color: #6fc8ef !important;
+}
+
+.layui-layer-btn0:hover {
+    color: #fff !important;
+    background-color: #0b6b95 !important;
+    border-color: #6fc8ef !important;
+}
+
+.layui-layer-btn0 .badge {
+    color: #1a8eee !important;
+    background-color: #fff !important;
+}
+
+/*修改密码取消按钮*/
+.layui-layer-btn1 {
+    color: #fff !important;
+    background-color: #f0ad4e !important;
+    border-color: #eea236 !important;
+}
+
+.layui-layer-btn1.focus, .layui-layer-btn1:focus {
+    color: #fff !important;
+    background-color: #ec971f !important;
+    border-color: #985f0d !important;
+}
+
+.layui-layer-btn1:hover {
+    color: #fff !important;
+    background-color: #ec971f !important;
+    border-color: #d58512 !important;
+}
+
+.layui-layer-btn1 .badge {
+    color: #f0ad4e !important;
+    background-color: #fff !important;
+}
+
+/*ui-button-text按钮样式*/
+.ui-button-text {
+    color: #fff;
+    background-color: #00a6ee !important;
+    border-color: #6fc8ef !important;
+}
+
+.ui-button-text.focus, .ui-button-text:focus {
+    color: #fff !important;
+    background-color: #099cee !important;
+    border-color: #6fc8ef !important;
+}
+
+.ui-button-text:hover {
+    color: #fff !important;
+    background-color: #0b6b95 !important;
+    border-color: #6fc8ef !important;
+}
+
+.ui-button-text .badge {
+    color: #1a8eee !important;
+    background-color: #fff !important;
+}
+
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text {
+    padding: 0px !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none !important;
+}
+
+/*隐藏修改页面标题*/
+.panel-heading {
+    display: none;
+}
+
+
+textarea {
+    overflow-x: hidden;
+    word-wrap: break-word;
+    min-height: 100px;
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/*关键字查询*/
+#keyword{
+    width: 220px;
+}
+.keyword{
+    max-width: 240px;
+}
