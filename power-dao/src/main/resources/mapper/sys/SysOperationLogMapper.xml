@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yance520.itpower.mapper.sys.SysOperationLogMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="sysOperationLogMap" type="com.yance520.itpower.model.sys.SysOperationLog">
+        <result property="id" column="id"/>
+        <result property="jobnumber" column="jobNumber"/>
+        <result property="url" column="url"/>
+        <result property="starttime" column="startTime"/>
+        <result property="endtime" column="endTime"/>
+        <result property="parameter" column="parameter"/>
+        <result property="ip" column="ip"/>
+        <result property="browser" column="browser"/>
+        <result property="country" column="country"/>
+        <result property="area" column="area"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <select id="reportTotal" resultType="int">
+        SELECT count(*)
+        FROM
+        (
+        SELECT
+        a.jobNumber,
+        SUBSTR(a.parameter, 25, 10) AS code,
+        a.parameter,a.startTime,
+        count(a.jobNumber) AS cnt
+        FROM
+        platform.sys_operation_log a
+        GROUP BY
+        a.jobNumber,
+        SUBSTR(a.parameter, 25, 10)
+        ) d
+        LEFT JOIN platform.user_forfront f ON f.jobNumber = d.jobNumber
+        left JOIN platform.portal_report rep on rep.`code`=d.code
+        <where>
+            <if test="jobNumber != null and jobNumber != ''">
+                and d.jobNumber = #{jobNumber}
+            </if>
+            <if test="code != null and code != ''">
+                and d.parameter REGEXP #{code}
+            </if>
+            <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+                and d.startTime BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+    </select>
+
+    <select id="reportcount" resultType="Map" parameterType="Map">
+        SELECT d.jobNumber,f. NAME,d. code,rep.title,d.cnt,d.startTime
+        FROM (
+        SELECT
+        a.jobNumber,
+        SUBSTR(a.parameter, 25, 10) AS code,
+        a.parameter,a.startTime,
+        count(a.jobNumber) AS cnt
+        FROM
+        platform.sys_operation_log a
+        GROUP BY
+        a.jobNumber,
+        SUBSTR(a.parameter, 25, 10)
+        ) d
+        LEFT JOIN platform.user_forfront f ON f.jobNumber = d.jobNumber
+        left JOIN platform.portal_report rep on rep.`code`=d.code
+        <where>
+            <if test="jobNumber != null and jobNumber != ''">
+                and d.jobNumber = #{jobNumber}
+            </if>
+            <if test="code != null and code != ''">
+                and d.parameter REGEXP #{code}
+            </if>
+            <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+                and d.startTime BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by startTime desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryVisit" resultType="Map" parameterType="Map">
+        SELECT
+        DATE_FORMAT(t.startTime,'%Y-%m-%d') AS _date,
+        count(1) AS _pv,
+        count(DISTINCT t.jobNumber) AS _uv,
+        count(DISTINCT t.ip) AS _ip
+        FROM
+        sys_operation_log t
+        <![CDATA[
+            WHERE
+            t.startTime >= #{begin}
+            AND t.startTime <= #{endNext}
+            GROUP BY
+            DATE_FORMAT(t.startTime,'%Y-%m-%d')
+            ORDER BY
+            DATE_FORMAT(t.startTime,'%Y-%m-%d')
+
+        ]]>
+    </select>
+
+    <select id="queryVisitByData" resultType="Map" parameterType="Map">
+        SELECT
+        SUBSTR(t.startTime,12,2) AS _date_h,
+        count(1) AS _pv,
+        count(DISTINCT t.jobNumber) AS _uv,
+        count(DISTINCT t.ip) AS _ip
+        FROM
+        sys_operation_log t
+        WHERE
+        <![CDATA[
+            t.startTime >= #{begin}
+            AND t.startTime <= #{endNext}
+            GROUP BY
+            SUBSTR(t.startTime,12,2)
+            ORDER BY
+            SUBSTR(t.startTime,12,2);
+
+        ]]>
+    </select>
+
+    <select id="queryObject" resultType="com.yance520.itpower.model.sys.SysOperationLog">
+        select * from sys_operation_log where id = #{value}
+    </select>
+
+    <select id="queryList" resultType="com.yance520.itpower.model.sys.SysOperationLog">
+        select * from sys_operation_log
+        <where>
+            <if test="id != null and id !=''">
+                and id like concat('%',#{id},'%')
+            </if>
+            <if test="remark != null and remark !=''">
+                and remark like concat('%',#{remark},'%')
+            </if>
+            <if test="keyword != null and keyword !=''">
+                and (
+                jobNumber like concat('%',#{keyword},'%')
+                or reportcode like concat('%',#{keyword},'%')
+                or ip like concat('%',#{keyword},'%')
+                )
+            </if>
+        </where>
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by startTime desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from sys_operation_log
+        <where>
+            <if test="id != null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="remark != null and remark !=''">
+                and remark like concat('%',#{remark},'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="saveLog" parameterType="com.yance520.itpower.model.sys.SysOperationLog" useGeneratedKeys="true"
+            keyProperty="id">
+		insert into sys_operation_log
+		(
+			`jobNumber`,
+			`method`,
+			`url`,
+			`startTime`,
+			`endTime`,
+			`reportcode`,
+			`parameter`,
+			`ip`,
+			`browser`,
+			`country`,
+			`area`,
+			`operation`,
+			`remark`,
+			`error`,
+			`status`
+		)
+		values
+		(
+			#{jobNumber},
+			#{method},
+			#{url},
+			#{startTime},
+			#{endTime},
+			#{reportcode},
+			#{parameter},
+			#{ip},
+			#{browser},
+			#{country},
+			#{area},
+			#{operation},
+			#{remark},
+			#{error},
+			#{status}
+		)
+	</insert>
+
+    <update id="update" parameterType="com.yance520.itpower.model.sys.SysOperationLog">
+        update sys_operation_log
+        <set>
+            <if test="jobnumber != null">`jobNumber` = #{jobnumber},</if>
+            <if test="method != null">`method` = #{method},</if>
+            <if test="url != null">`url` = #{url},</if>
+            <if test="starttime != null">`startTime` = #{starttime},</if>
+            <if test="endtime != null">`endTime` = #{endtime},</if>
+            <if test="reportcode != null">`reportcode` = #{reportcode},</if>
+            <if test="parameter != null">`parameter` = #{parameter},</if>
+            <if test="ip != null">`ip` = #{ip},</if>
+            <if test="browser != null">`browser` = #{browser},</if>
+            <if test="country != null">`country` = #{country},</if>
+            <if test="area != null">`area` = #{area},</if>
+            <if test="remark != null">`remark` = #{remark},</if>
+            <if test="error != null">`error` = #{error}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from sys_operation_log where id = #{value}
+    </delete>
+
+    <delete id="deleteBatch">
+        delete from sys_operation_log where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
