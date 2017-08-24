@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+    http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <!-- 扫描装载 自动实例化指定包以及子包下的所有bean -->
+    <context:component-scan base-package="com.yance520.*"/>
+
+    <!-- 开启注解功能 -->
+    <context:annotation-config/>
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="power-api-service"/>
+
+    <!-- 不注册到任务地方，只提供服务 -->
+    <!--<dubbo:registry address="N/A"/>-->
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- 使用注解方式暴露接口(存在Dubbo不能同时使用@Service和@Transactional问题)，扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
+    <!--<dubbo:annotation package="com.yance520.itpower.service" />-->
+
+    <!-- 使用配置的方式暴露接口，声明需要暴露的服务接口 -->
+    <!-- 多数据源测试 -->
+    <bean id="testDataSourceService" class="com.yance520.itpower.service.impl.test.TestDataSourceServiceImpl"/>
+    <dubbo:service interface="com.yance520.itpower.service.test.TestDataSourceService" ref="testDataSourceService"
+                   timeout="300000"/>
+    <!-- 报表储存过程统一入口服务 -->
+    <bean id="apiService" class="com.yance520.itpower.service.impl.ApiServiceImpl"/>
+    <dubbo:service interface="com.yance520.itpower.service.ApiService" ref="apiService" timeout="300000"/>
+
+    <!--存储过程管理  -->
+    <bean id="cProMeterdataInformationService"
+          class="com.yance520.itpower.service.impl.CProMeterdataInformationServiceImpl"/>
+    <dubbo:service interface="com.yance520.itpower.service.CProMeterdataInformationService"
+                   ref="cProMeterdataInformationService" timeout="300000"/>
+
+
+    <!--&lt;!&ndash; 登录，用户相关操作&ndash;&gt;-->
+    <!--<bean id="userService" class="com.yance520.itpower.service.impl.global.UserServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.global.UserService" ref="userService" timeout="300000"/>-->
+
+    <!-- token持久化-->
+    <bean id="tokenApiService" class="com.yance520.itpower.service.impl.TokenApiServiceImpl"/>
+    <dubbo:service interface="com.yance520.itpower.service.TokenApiService" ref="tokenApiService" timeout="300000"/>
+
+    <!--&lt;!&ndash; 用户菜单数据&ndash;&gt;-->
+    <!--<bean id="userAuthMenuService" class="com.yance520.itpower.service.impl.sys.UserAuthMenuServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.sys.UserAuthMenuService" ref="userAuthMenuService"-->
+                   <!--timeout="300000"/>-->
+
+    <!--&lt;!&ndash; 用户权限数据R_M mapping&ndash;&gt;-->
+    <!--<bean id="userAuthRoleMenuService" class="com.yance520.itpower.service.impl.sys.UserAuthRoleMenuServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.sys.UserAuthRoleMenuService" ref="userAuthRoleMenuService"-->
+                   <!--timeout="300000"/>-->
+
+
+
+    <!--&lt;!&ndash; 图片上传  &ndash;&gt;-->
+    <!--<bean id="apiImgsInfoService" class="com.yance520.itpower.service.impl.sys.ApiImgsInfoServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.sys.ApiImgsInfoService" ref="apiImgsInfoService"-->
+                   <!--timeout="300000"/>-->
+
+
+    <!--&lt;!&ndash; 海报上传  &ndash;&gt;-->
+    <!--<bean id="PosterImportervice" class="com.yance520.itpower.service.impl.sys.PosterImportServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.sys.PosterImportService" ref="PosterImportervice"-->
+                   <!--timeout="300000"/>-->
+
+    <!--&lt;!&ndash; 数据学院热门课程查询  &ndash;&gt;-->
+    <!--<bean id="ApiActicleRecommendService"-->
+          <!--class="com.yance520.itpower.service.impl.business.ApiActicleRecommendServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.business.ApiActicleRecommendService"-->
+                   <!--ref="ApiActicleRecommendService"-->
+                   <!--timeout="300000"/>-->
+
+    <!--&lt;!&ndash; 数据学院专题查询  &ndash;&gt;-->
+    <!--<bean id="ApiSubjectInfoService" class="com.yance520.itpower.service.impl.business.ApiSubjectInfoServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.business.ApiSubjectInfoService" ref="ApiSubjectInfoService"-->
+                   <!--timeout="300000"/>-->
+
+    <!--&lt;!&ndash; 数据学院轮播查询  &ndash;&gt;-->
+    <!--<bean id="ApiActicleSliderService" class="com.yance520.itpower.service.impl.business.ApiActicleSliderServiceImpl"/>-->
+    <!--<dubbo:service interface="com.yance520.itpower.service.business.ApiActicleSliderService" ref="ApiActicleSliderService"-->
+                   <!--timeout="300000"/>-->
+
+
+
+</beans>
