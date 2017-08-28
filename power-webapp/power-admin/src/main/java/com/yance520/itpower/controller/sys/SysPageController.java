@@ -26,10 +26,10 @@ public class SysPageController {
         return "platform/" + url + ".html";
     }
 
-//    @RequestMapping("app/{url}.html")
-//    public String app(@PathVariable("url") String url) {
-//        return "app/" + url + ".html";
-//    }
+    @RequestMapping("error/{url}.html")
+    public String app(@PathVariable("url") String url) {
+        return "error/" + url + ".html";
+    }
 
 //    @RequestMapping("businessman/{url}.html")
 //    public String businessman(@PathVariable("url") String url) {
