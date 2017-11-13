@@ -17,7 +17,7 @@ public class PortalDataSource extends AuditAuto {
     // 连接类型 数据库驱动程序  com.mysql.jdbc.Driver
     private String jdbcDriver;
     // 连接地址 jdbc:mysql://localhost:3306/test
-    // jdbc:mysql://10.67.241.242:3306/bamboo-yonghui?autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    // jdbc:mysql://10.67.241.242:3306/bamboo-yance?autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     private String url;
     // 用户名
     private String user;
