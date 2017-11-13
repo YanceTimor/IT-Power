@@ -3,25 +3,25 @@
 
 <mapper namespace="mapper.api.TokenApiMapper">
 
-	<select id="queryByJobNumber" resultType="com.yance520.itpower.model.api.TokenApi">
-		select * from token_api where job_number = #{jobNumber}
+	<select id="queryByUserName" resultType="com.yance520.itpower.model.api.TokenApi">
+		select * from platform.token_api where user_name = #{userName}
 	</select>
 
 	<select id="queryByToken" resultType="com.yance520.itpower.model.api.TokenApi">
-		select * from token_api where token = #{token}
+		select * from platform.token_api where token = #{token}
 	</select>
 	 
 	<insert id="save" parameterType="com.yance520.itpower.model.api.TokenApi">
-		insert into token_api
+		insert into platform.token_api
 		(
-			`job_number`, 
+			`user_name`,
 			`token`, 
 			`expire_time`, 
 			`update_time`
 		)
 		values
 		(
-			#{jobNumber}, 
+			#{userName},
 			#{token}, 
 			#{expireTime}, 
 			#{updateTime}
@@ -29,21 +29,21 @@
 	</insert>
 	 
 	<update id="update" parameterType="com.yance520.itpower.model.api.TokenApi">
-		update token_api 
+		update platform.token_api 
 		<set>
 			<if test="token != null">`token` = #{token}, </if>
 			<if test="expireTime != null">`expire_time` = #{expireTime}, </if>
 			<if test="updateTime != null">`update_time` = #{updateTime}</if>
 		</set>
-		where job_number = #{jobNumber}
+		where user_name = #{userName}
 	</update>
 
-	<delete id="deleteByJobNumber">
-		delete from token_api where job_number = #{jobNumber}
+	<delete id="deleteByUserName">
+		delete from platform.token_api where user_name = #{userName}
 	</delete>
 
 	<delete id="deleteByToken">
-		delete from token_api where token = #{token}
+		delete from platform.token_api where token = #{token}
 	</delete>
 
 </mapper>

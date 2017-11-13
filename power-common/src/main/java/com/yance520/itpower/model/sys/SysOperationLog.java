@@ -13,7 +13,7 @@ public class SysOperationLog implements Serializable {
     //id
     private Long id;
     //工号
-    private String jobNumber;
+    private String userName;
     //用户操作url
     private String url;
     //开始时间
@@ -115,12 +115,12 @@ public class SysOperationLog implements Serializable {
         this.id = id;
     }
 
-    public String getJobNumber() {
-        return jobNumber;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setJobNumber(String jobNumber) {
-        this.jobNumber = jobNumber;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUrl() {

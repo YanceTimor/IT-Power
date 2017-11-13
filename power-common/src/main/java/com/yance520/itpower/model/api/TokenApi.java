@@ -10,7 +10,7 @@ public class TokenApi implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//用户ID
-	private String jobNumber;
+	private String userName;
 	//token值
 	private String token;
 	//过期时间
@@ -18,12 +18,12 @@ public class TokenApi implements Serializable {
 	//更新时间
 	private Date updateTime;
 
-	public String getJobNumber() {
-		return jobNumber;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setJobNumber(String jobNumber) {
-		this.jobNumber = jobNumber;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**

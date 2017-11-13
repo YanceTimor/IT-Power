@@ -10,11 +10,11 @@ import com.yance520.itpower.model.api.TokenApi;
 public interface TokenApiService {
 
 	/**
-	 * 根据工号查询
-	 * @param jobNumber
+	 * 根据账号查询
+	 * @param userName
 	 * @return
 	 */
-	TokenApi queryByJobNumber(String jobNumber);
+	TokenApi queryByUserName(String userName);
 
 	/**
 	 * 根据token值查询
@@ -36,11 +36,11 @@ public interface TokenApiService {
 	void update(TokenApi token);
 
 	/**
-	 * 根据工号删除
-	 * @param jobNumber
+	 * 根据账号删除
+	 * @param userName
 	 * @return
 	 */
-	int deleteByJobNumber(String jobNumber);
+	int deleteByUserName(String userName);
 
 	/**
 	 * 根据token删除

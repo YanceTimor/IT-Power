@@ -9,11 +9,11 @@ import com.yance520.itpower.model.api.TokenApi;
  */
 public interface TokenApiMapper extends BaseMapper<TokenApi> {
 
-    TokenApi queryByJobNumber(String jobNumber);
+    TokenApi queryByUserName(String userName);
 
     TokenApi queryByToken(String token);
 
-    int deleteByJobNumber(String jobNumber);
+    int deleteByUserName(String userName);
 
     int deleteByToken(String token);
 	

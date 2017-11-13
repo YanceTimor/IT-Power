@@ -1,20 +1,16 @@
 package com.yance520.itpower.utils.redis;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.alibaba.fastjson.JSONObject;
 import com.yance520.itpower.model.api.TokenApi;
 import com.yance520.itpower.model.paltform.User;
 import com.yance520.itpower.service.TokenApiService;
-import com.yance520.itpower.utils.RandomNumString;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
 /**
  * token管理
- *
  */
 @Component("tokenUtil")
 public class TokenUtil {
@@ -40,14 +36,21 @@ public class TokenUtil {
         } else {
             if (tokenApiLast.getExpireTime().getTime() < System.currentTimeMillis()) {
                 // token已失效，重新登录，先删除上次登陆保存的token
-//                redisBizUtil.removeApiToken(tokenApiLast.getToken());
-//                tokenApiService.deleteByJobNumber(user.getJobNumber());
+                removeOldTokenApi(tokenApiLast);
                 return getNewTokenApi(user);
             } else {
                 // token未失效，直接返回
                 return tokenApiLast;
             }
         }
+    }
+
+    /**
+     * 删除上次登陆保存的token
+     */
+    private void removeOldTokenApi(TokenApi tokenApiLast) {
+    //   redisBizUtil.removeApiToken(tokenApiLast.getToken());
+        tokenApiService.deleteByUserName(tokenApiLast.getUserName());
     }
 
     /**

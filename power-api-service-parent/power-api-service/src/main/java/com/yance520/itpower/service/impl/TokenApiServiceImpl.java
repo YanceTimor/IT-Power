@@ -11,8 +11,8 @@ public class TokenApiServiceImpl implements TokenApiService {
     private TokenApiMapper tokenApiMapper;
 
     @Override
-    public TokenApi queryByJobNumber(String jobNumber) {
-        return tokenApiMapper.queryByJobNumber(jobNumber);
+    public TokenApi queryByUserName(String userName) {
+        return tokenApiMapper.queryByUserName(userName);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class TokenApiServiceImpl implements TokenApiService {
     }
 
     @Override
-    public int deleteByJobNumber(String jobNumber) {
-        return tokenApiMapper.deleteByJobNumber(jobNumber);
+    public int deleteByUserName(String userName) {
+        return tokenApiMapper.deleteByUserName(userName);
     }
 
     @Override

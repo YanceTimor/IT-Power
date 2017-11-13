@@ -14,8 +14,12 @@
   <version>1.0-SNAPSHOT</version>
 
   <modules>
+      <!--后台管理系统-->
       <module>power-admin</module>
+      <!--前端接口-->
       <module>power-api</module>
+      <!--前端页面-->
+      <module>power-web</module>
   </modules>
 
   <name>power-webapp</name>

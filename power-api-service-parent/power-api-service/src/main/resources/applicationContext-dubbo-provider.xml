@@ -48,52 +48,14 @@
                    ref="cProMeterdataInformationService" timeout="300000"/>
 
 
-    <!--&lt;!&ndash; 登录，用户相关操作&ndash;&gt;-->
-    <!--<bean id="userService" class="com.yance520.itpower.service.impl.global.UserServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.global.UserService" ref="userService" timeout="300000"/>-->
-
     <!-- token持久化-->
     <bean id="tokenApiService" class="com.yance520.itpower.service.impl.TokenApiServiceImpl"/>
     <dubbo:service interface="com.yance520.itpower.service.TokenApiService" ref="tokenApiService" timeout="300000"/>
-
-    <!--&lt;!&ndash; 用户菜单数据&ndash;&gt;-->
-    <!--<bean id="userAuthMenuService" class="com.yance520.itpower.service.impl.sys.UserAuthMenuServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.sys.UserAuthMenuService" ref="userAuthMenuService"-->
-                   <!--timeout="300000"/>-->
-
-    <!--&lt;!&ndash; 用户权限数据R_M mapping&ndash;&gt;-->
-    <!--<bean id="userAuthRoleMenuService" class="com.yance520.itpower.service.impl.sys.UserAuthRoleMenuServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.sys.UserAuthRoleMenuService" ref="userAuthRoleMenuService"-->
-                   <!--timeout="300000"/>-->
-
 
 
     <!--&lt;!&ndash; 图片上传  &ndash;&gt;-->
     <!--<bean id="apiImgsInfoService" class="com.yance520.itpower.service.impl.sys.ApiImgsInfoServiceImpl"/>-->
     <!--<dubbo:service interface="com.yance520.itpower.service.sys.ApiImgsInfoService" ref="apiImgsInfoService"-->
-                   <!--timeout="300000"/>-->
-
-
-    <!--&lt;!&ndash; 海报上传  &ndash;&gt;-->
-    <!--<bean id="PosterImportervice" class="com.yance520.itpower.service.impl.sys.PosterImportServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.sys.PosterImportService" ref="PosterImportervice"-->
-                   <!--timeout="300000"/>-->
-
-    <!--&lt;!&ndash; 数据学院热门课程查询  &ndash;&gt;-->
-    <!--<bean id="ApiActicleRecommendService"-->
-          <!--class="com.yance520.itpower.service.impl.business.ApiActicleRecommendServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.business.ApiActicleRecommendService"-->
-                   <!--ref="ApiActicleRecommendService"-->
-                   <!--timeout="300000"/>-->
-
-    <!--&lt;!&ndash; 数据学院专题查询  &ndash;&gt;-->
-    <!--<bean id="ApiSubjectInfoService" class="com.yance520.itpower.service.impl.business.ApiSubjectInfoServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.business.ApiSubjectInfoService" ref="ApiSubjectInfoService"-->
-                   <!--timeout="300000"/>-->
-
-    <!--&lt;!&ndash; 数据学院轮播查询  &ndash;&gt;-->
-    <!--<bean id="ApiActicleSliderService" class="com.yance520.itpower.service.impl.business.ApiActicleSliderServiceImpl"/>-->
-    <!--<dubbo:service interface="com.yance520.itpower.service.business.ApiActicleSliderService" ref="ApiActicleSliderService"-->
                    <!--timeout="300000"/>-->
 
 
